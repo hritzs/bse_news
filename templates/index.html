@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BSE News</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>BSE News</h1>
+    <table>
+        <tr>
+            <th>News</th>
+        </tr>
+        {% for row in unique_filtered_data %}
+        <tr>
+            <td>{{ row[0] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
