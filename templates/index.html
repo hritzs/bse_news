@@ -17,13 +17,36 @@
     <h1>BSE News</h1>
     <table>
         <tr>
-            <th>News</th>
+            <th>#</th>
+            <th>Company Name</th>
+            <th>Announcement Details</th>
+            <th>Disseminated Time</th>
+            <th>PDF Link</th>
         </tr>
         {% for row in unique_filtered_data %}
         <tr>
+            <td>{{ loop.index }}</td>
             <td>{{ row[0] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{% if row|length > 3 %}{{ row[3] }}{% endif %}</td>
+            <td>
+                {% if row|length > 4 %}
+                    <a href="{{ row[4] }}" target="_blank">
+                        <i class="fa fa-file-pdf-o redpdficon" src="" alt="" border="0"></i>
+                        PDF Link
+                    </a>
+                {% else %}
+                    NA
+                {% endif %}
+            </td>
         </tr>
         {% endfor %}
     </table>
+    <script>
+        // Set the interval to refresh the page every 10 seconds
+        setInterval(function() {
+          location.reload();
+        }, 10000);
+      </script>
 </body>
 </html>
